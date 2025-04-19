@@ -12,11 +12,18 @@ import javafx.stage.Stage;
 // Sem o uso de fxml, feito diretamento no código
 public class Contador extends Application {
 
+    // Coloque as variáveis ou elemento que serão usados dentro da classe principal
+    private Button buttonIncrease;
+    private Button buttonDecrease;
+    private Label titleLabel;
+    private Label numberLabel;
+
+    // Essa informação ficaria dentro do meu model
+    private int counter = 0;
+
     // Separo no start as funções do stage e das scenes
     @Override
     public void start(Stage stage){
-        // Quando criar os métodos, usar uma construção inversa
-
         Scene mainScene = new Scene(createMainBox(), 400, 400);
         stage.setScene(mainScene);
         stage.show();
@@ -24,23 +31,21 @@ public class Contador extends Application {
 
     private VBox createMainBox() {
         // Poderia criar direto, porém é necessário seguir uma ordem de execução
+        createLabels();
         HBox buttonBox = createButtonBox();
         VBox mainBox = new VBox();
 
         // Configs do mainBox
         mainBox.setSpacing(10);
         mainBox.setAlignment(Pos.CENTER);
-        mainBox.getChildren().addAll(createLabels());
-        mainBox.getChildren().add(buttonBox);
+        mainBox.getChildren().addAll(titleLabel, numberLabel, buttonBox);
 
         return mainBox;
     }
 
-    private Label[] createLabels() {
-        Label titleLabel = new Label("Contador");
-        Label numberLabel= new Label("0");
-
-        return new Label[]{titleLabel, numberLabel};
+    private void createLabels() {
+        this.titleLabel = new Label("Contador");
+        this.numberLabel= new Label("0");
     }
 
     /*
@@ -49,7 +54,8 @@ public class Contador extends Application {
         Todos os métodos possuem poucas funções
      */
     private HBox createButtonBox() {
-        HBox buttonsBox = new HBox(createButtons());
+        createButtons();
+        HBox buttonsBox = new HBox(buttonIncrease, buttonDecrease);
         buttonsBox.setSpacing(10);
         buttonsBox.setAlignment(Pos.CENTER);
 
@@ -57,11 +63,19 @@ public class Contador extends Application {
     }
 
     // Cria os dois botões e retorna uma array
-    private Button[] createButtons() {
-        Button buttonDecrease = new Button("-");
-        Button buttonIncrease = new Button("+");
+    private void createButtons() {
+        this.buttonDecrease = new Button("-");
+        this.buttonIncrease = new Button("+");
+        setActionsButtons();
+    }
 
-        return new Button[]{buttonIncrease, buttonDecrease};
+    private void setActionsButtons() {
+        // Agora que são variáveis de classe, é possível modificar com facilidade
+        buttonIncrease.setOnAction(event ->
+                numberLabel.setText(Integer.toString(++counter)));
+
+        buttonDecrease.setOnAction(event ->
+                numberLabel.setText(Integer.toString(--counter)));
     }
 
     public static void main(String... args){
