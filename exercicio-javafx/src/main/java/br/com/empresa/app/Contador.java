@@ -30,6 +30,7 @@ public class Contador extends Application {
 
         Scene mainScene = new Scene(createMainBox(), 400, 400);
         mainScene.getStylesheets().add(cssPATH);
+        mainScene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald"); // Import
 
         stage.setScene(mainScene);
         stage.show();
@@ -42,6 +43,7 @@ public class Contador extends Application {
         VBox mainBox = new VBox();
 
         // Configs do mainBox
+        mainBox.getStyleClass().add("content"); // Adição de uma classe diretamente no meu java
         mainBox.setSpacing(10);
         mainBox.setAlignment(Pos.CENTER);
         mainBox.getChildren().addAll(titleLabel, numberLabel, buttonBox);
@@ -52,6 +54,9 @@ public class Contador extends Application {
     private void createLabels() {
         this.titleLabel = new Label("Contador");
         this.numberLabel= new Label("0");
+
+        titleLabel.getStyleClass().add("title");
+        numberLabel.getStyleClass().add("number");
     }
 
     /*

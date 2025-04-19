@@ -1,4 +1,15 @@
 
-.conteudo {
-    -fx-background-color: red;
+.content {
+    -fx-background-color: black;
+    -fx-font-family: "Oswald";
+}
+
+.title {
+    -fx-text-fill: #02D8E6;
+    -fx-font-size: 36px;
+}
+
+.number {
+    -fx-text-fill: #FFF;
+    -fx-font-size: 28px;
 }
