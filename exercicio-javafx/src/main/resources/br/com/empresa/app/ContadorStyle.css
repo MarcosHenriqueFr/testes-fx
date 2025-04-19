@@ -7,9 +7,35 @@
 .title {
     -fx-text-fill: #02D8E6;
     -fx-font-size: 36px;
+    -fx-underline: true;
 }
 
 .number {
     -fx-text-fill: #FFF;
     -fx-font-size: 28px;
 }
+
+.number:positive {
+    -fx-text-fill: #44EB73;
+}
+
+.number:negative {
+    -fx-text-fill: #EB403F;
+}
+
+/* Transições são aplicadas diretamente no código */
+.buttons {
+    -fx-background-color: #FFF;
+    -fx-text-fill: #02D8E6;
+    -fx-font-size: 24px;
+    -fx-min-width: 60px;
+    -fx-min-height: 60px;
+    -fx-background-radius: 30px;
+}
+
+.buttons:hover {
+    -fx-background-color: #02A0AB;
+    -fx-cursor: hand;
+    -fx-text-fill: #FFF;
+}
+

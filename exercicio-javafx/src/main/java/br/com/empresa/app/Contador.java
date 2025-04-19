@@ -1,6 +1,7 @@
 package br.com.empresa.app;
 
 import javafx.application.Application;
+import javafx.css.PseudoClass;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,19 +10,19 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-// Sem o uso de fxml, feito diretamento no código
 public class Contador extends Application {
 
-    // Coloque as variáveis ou elemento que serão usados dentro da classe principal
     private Button buttonIncrease;
     private Button buttonDecrease;
     private Label titleLabel;
     private Label numberLabel;
 
-    // Essa informação ficaria dentro do meu model
+    // Uso de pseudo classes para mudanças de status
+    private final PseudoClass positivePseudoClass = PseudoClass.getPseudoClass("positive");
+    private final PseudoClass negativePseudoClass = PseudoClass.getPseudoClass("negative");
+
     private int counter = 0;
 
-    // Separo no start as funções do stage e das scenes
     @Override
     public void start(Stage stage){
         String cssPATH = getClass()
@@ -29,6 +30,7 @@ public class Contador extends Application {
                         .toExternalForm();
 
         Scene mainScene = new Scene(createMainBox(), 400, 400);
+        updateLabelColor();
         mainScene.getStylesheets().add(cssPATH);
         mainScene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald"); // Import
 
@@ -37,7 +39,6 @@ public class Contador extends Application {
     }
 
     private VBox createMainBox() {
-        // Poderia criar direto, porém é necessário seguir uma ordem de execução
         createLabels();
         HBox buttonBox = createButtonBox();
         VBox mainBox = new VBox();
@@ -73,20 +74,32 @@ public class Contador extends Application {
         return buttonsBox;
     }
 
-    // Cria os dois botões e retorna uma array
     private void createButtons() {
         this.buttonDecrease = new Button("-");
         this.buttonIncrease = new Button("+");
+        buttonDecrease.getStyleClass().add("buttons");
+        buttonIncrease.getStyleClass().add("buttons");
+
         setActionsButtons();
     }
 
-    private void setActionsButtons() {
-        // Agora que são variáveis de classe, é possível modificar com facilidade
-        buttonIncrease.setOnAction(event ->
-                numberLabel.setText(Integer.toString(++counter)));
+    private void updateLabelColor(){
+        // Instancia e depois usa diretamente no código
+        numberLabel.pseudoClassStateChanged(positivePseudoClass, counter > 0);
+        numberLabel.pseudoClassStateChanged(negativePseudoClass, counter < 0);
+    }
 
-        buttonDecrease.setOnAction(event ->
-                numberLabel.setText(Integer.toString(--counter)));
+    private void setActionsButtons() {
+        // Dá um update cada vez que é clicado
+        buttonIncrease.setOnAction(event -> {
+            numberLabel.setText(Integer.toString(++counter));
+            updateLabelColor();
+        });
+
+        buttonDecrease.setOnAction(event -> {
+            numberLabel.setText(Integer.toString(--counter));
+            updateLabelColor();
+        });
     }
 
     public static void main(String... args){
