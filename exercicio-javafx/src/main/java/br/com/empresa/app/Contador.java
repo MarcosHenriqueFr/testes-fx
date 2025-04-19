@@ -24,7 +24,13 @@ public class Contador extends Application {
     // Separo no start as funções do stage e das scenes
     @Override
     public void start(Stage stage){
+        String cssPATH = getClass()
+                        .getResource("/br/com/empresa/app/ContadorStyle.css")
+                        .toExternalForm();
+
         Scene mainScene = new Scene(createMainBox(), 400, 400);
+        mainScene.getStylesheets().add(cssPATH);
+
         stage.setScene(mainScene);
         stage.show();
     }
