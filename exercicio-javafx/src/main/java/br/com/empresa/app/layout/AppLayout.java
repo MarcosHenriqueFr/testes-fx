@@ -13,7 +13,8 @@ public class AppLayout extends Application {
         Parent root = null;
 
         //root = new TesteAnchorPane();
-        root = new TesteBorderPane();
+        //root = new TesteBorderPane();
+        root = new TesteFlowPane();
 
         Scene main = new Scene(root, 800, 600);
 
