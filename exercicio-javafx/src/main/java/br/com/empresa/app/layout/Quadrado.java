@@ -1,14 +1,9 @@
 package br.com.empresa.app.layout;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+// Os quadrados possuem os tamanhos fixos, eles não se alinham com o tamanho da tela
 public class Quadrado extends Rectangle {
     private static int i = 0;
     private String[] cores = {"#c33c5e", "#39aac6", "#28d79a",
