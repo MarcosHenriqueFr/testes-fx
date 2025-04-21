@@ -1,4 +1,4 @@
-package br.com.empresa.app;
+package br.com.empresa.app.base;
 
 import javafx.application.Application;
 import javafx.css.PseudoClass;
@@ -26,7 +26,7 @@ public class Contador extends Application {
     @Override
     public void start(Stage stage){
         String cssPATH = getClass()
-                        .getResource("/br/com/empresa/app/ContadorStyle.css")
+                        .getResource("/br/com/empresa/app/base/ContadorStyle.css")
                         .toExternalForm();
 
         Scene mainScene = new Scene(createMainBox(), 400, 400);

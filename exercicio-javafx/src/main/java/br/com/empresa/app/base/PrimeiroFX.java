@@ -1,4 +1,4 @@
-package br.com.empresa.app;
+package br.com.empresa.app.base;
 
 // Tudo tem que vir de javaFX
 import javafx.application.Application;

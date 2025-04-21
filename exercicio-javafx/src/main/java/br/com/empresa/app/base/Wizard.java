@@ -1,4 +1,4 @@
-package br.com.empresa.app;
+package br.com.empresa.app.base;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
