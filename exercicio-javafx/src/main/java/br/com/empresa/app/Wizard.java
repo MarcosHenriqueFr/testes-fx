@@ -63,9 +63,12 @@ public class Wizard extends Application {
         Button buttonToPreviousStep = new Button("<< Voltar para o passo 2");
         buttonToPreviousStep.setOnAction(event -> window.setScene(step2));
 
+        Button buttonEndApplication = new Button("Finalizar!");
+        buttonEndApplication.setOnAction(event -> System.exit(0));
+
         HBox box = new HBox();
         box.setAlignment(Pos.CENTER);
-        box.getChildren().addAll(buttonToPreviousStep);
+        box.getChildren().addAll(buttonToPreviousStep, buttonEndApplication);
 
         step3 = new Scene(box, 400, 400);
     }
