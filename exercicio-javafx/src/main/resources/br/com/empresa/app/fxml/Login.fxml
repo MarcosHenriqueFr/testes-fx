@@ -4,17 +4,25 @@
 <?import javafx.scene.control.*?>
 
 <!-- Vincula o controlador direto no layout -->
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.empresa.app.fxml.LoginController">
-    <Label text="Seja Bem Vindo" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.empresa.app.fxml.LoginController"
+          styleClass="login"
+>
+    <Label text="Seja Bem Vindo" GridPane.columnIndex="0" GridPane.rowIndex="0"
+           styleClass="login-titulo"
+    />
 
-    <Label text="Email: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Email: " GridPane.columnIndex="0" GridPane.rowIndex="1"
+           styleClass="login-form-label"
+    />
     <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-    <Label text="Senha: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label text="Senha: " GridPane.columnIndex="0" GridPane.rowIndex="2"
+           styleClass="login-form-label"
+    />
     <PasswordField fx:id="pwField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <!--  Igual ao métod JS diretamente ligado aos elementos do HTML -->
     <Button text="Entrar" GridPane.columnIndex="0" GridPane.rowIndex="3"
-        onAction="#entrar"
+        styleClass="login-form-button" onAction="#entrar"
     />
 </GridPane>

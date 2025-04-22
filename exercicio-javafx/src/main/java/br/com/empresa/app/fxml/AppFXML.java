@@ -8,15 +8,19 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
+// O load fica mais demorado
 public class AppFXML extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        //Coloco o resultado do FXML loader direto no root
+        // Os processos são semelhantes, e ambos, CSS e FXML tem que ser carregados no meu start
+        String fileCSS = getClass().getResource("/br/com/empresa/app/fxml/LoginStyle.css").toExternalForm();
         URL fileFXML = getClass().getResource("/br/com/empresa/app/fxml/Login.fxml");
         GridPane root = FXMLLoader.load(fileFXML);
 
         Scene scene = new Scene(root, 350, 400);
+        scene.getStylesheets().add(fileCSS);
+
         stage.setResizable(false); // Não permite a alteração do tamanho
         stage.setTitle("Tela de Login");
         stage.setScene(scene);
