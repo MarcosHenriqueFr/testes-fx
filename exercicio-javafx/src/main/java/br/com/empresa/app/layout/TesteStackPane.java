@@ -1,5 +1,6 @@
 package br.com.empresa.app.layout;
 
+import javafx.application.Platform;
 import javafx.scene.layout.StackPane;
 
 // Coloca os elementos como uma pilha
@@ -26,5 +27,26 @@ public class TesteStackPane extends StackPane {
                 getChildren().getLast().toBack();
             }
         });
+
+
+        // Uso de threads no javaFX
+        // Não reseta o tempo
+        Thread t = new Thread(() -> {
+            while(true){
+                try {
+                    Thread.sleep(3000);
+
+                    Platform.runLater(() -> {
+                        getChildren().getFirst().toFront();
+                    });
+
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        });
+
+        t.setDaemon(true); // Morre com a principal
+        t.start();
     }
 }
