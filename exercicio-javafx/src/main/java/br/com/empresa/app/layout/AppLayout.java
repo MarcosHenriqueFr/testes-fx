@@ -15,7 +15,8 @@ public class AppLayout extends Application {
         //root = new TesteAnchorPane();
         //root = new TesteBorderPane();
         //root = new TesteFlowPane();
-        root = new TesteGridPane();
+        //root = new TesteGridPane();
+        root = new TesteStackPane();
 
         Scene main = new Scene(root, 800, 600);
 

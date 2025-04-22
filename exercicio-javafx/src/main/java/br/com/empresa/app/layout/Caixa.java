@@ -14,7 +14,7 @@ public class Caixa extends HBox {
 
     private static int i = 0;
     private String[] cores = {"#c33c5e", "#39aac6", "#28d79a",
-                              "#fb750e", "#6657a8", "#f9060e"
+                              "#fb750e", "#6657a8", "#F96945"
     };
 
     public Caixa(){
