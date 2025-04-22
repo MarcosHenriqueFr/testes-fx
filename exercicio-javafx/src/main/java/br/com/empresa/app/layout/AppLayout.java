@@ -3,9 +3,7 @@ package br.com.empresa.app.layout;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import br.com.empresa.app.layout.Quadrado;
 
 public class AppLayout extends Application {
 
@@ -16,7 +14,8 @@ public class AppLayout extends Application {
         //root = new TesteBorderPane();
         //root = new TesteFlowPane();
         //root = new TesteGridPane();
-        root = new TesteStackPane();
+        //root = new TesteStackPane();
+        root = new TesteTilePane();
 
         Scene main = new Scene(root, 800, 600);
 

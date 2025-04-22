@@ -13,12 +13,12 @@ public class Quadrado extends Rectangle {
     // Mais Simples
     public Quadrado(){
         // Altura padrão
-        this(100, 100);
+        this(100);
     }
 
-    public Quadrado(int width, int height){
-        setWidth(width);
-        setHeight(height);
+    public Quadrado(int size){
+        setWidth(size);
+        setHeight(size);
 
         setFill(Color.web(cores[i]));
 
