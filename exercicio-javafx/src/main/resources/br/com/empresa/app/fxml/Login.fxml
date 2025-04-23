@@ -2,14 +2,24 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
 
 <!-- Vincula o controlador direto no layout -->
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.empresa.app.fxml.LoginController"
           styleClass="login"
 >
+    <columnConstraints>
+        <ColumnConstraints minWidth="60" prefWidth="60" halignment="RIGHT"/>
+        <ColumnConstraints minWidth="200" maxWidth="Infinity" hgrow="ALWAYS"/>
+    </columnConstraints>
+
     <Label text="Seja Bem Vindo" GridPane.columnIndex="0" GridPane.rowIndex="0"
-           styleClass="login-titulo"
-    />
+           styleClass="login-titulo" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+
+        <GridPane.margin>
+            <Insets top="20" bottom="20" />
+        </GridPane.margin>
+    </Label>
 
     <Label text="Email: " GridPane.columnIndex="0" GridPane.rowIndex="1"
            styleClass="login-form-label"
@@ -24,5 +34,10 @@
     <!--  Igual ao métod JS diretamente ligado aos elementos do HTML -->
     <Button text="Entrar" GridPane.columnIndex="0" GridPane.rowIndex="3"
         styleClass="login-form-button" onAction="#entrar"
-    />
+        GridPane.columnSpan="2" GridPane.halignment="CENTER">
+
+        <GridPane.margin>
+            <Insets top="20" bottom="20" />
+        </GridPane.margin>
+    </Button>
 </GridPane>

@@ -1,7 +1,10 @@
 
 .login {
     -fx-background-color: linear-gradient(to right, #B993D6, #8CA6DB);
-    -fx-font-family: "Courier New";
+    -fx-font-family: "Arial Black";
+    -fx-padding: 40px;
+    -fx-vgap: 20px;
+    -fx-hgap: 20px;
 }
 
 .login-titulo {
