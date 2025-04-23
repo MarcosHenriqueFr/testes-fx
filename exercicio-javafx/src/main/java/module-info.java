@@ -2,7 +2,6 @@ module exerciciofx {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.xml;
-    requires org.controlsfx.controls;
 
     // Poderia ser um opens para qualquer um, porém fica mais encapsulado
     exports br.com.empresa.app.base;

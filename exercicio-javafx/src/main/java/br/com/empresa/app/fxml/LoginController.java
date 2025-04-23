@@ -1,10 +1,8 @@
 package br.com.empresa.app.fxml;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.controlsfx.control.Notifications;
 
 public class LoginController {
 
@@ -18,22 +16,7 @@ public class LoginController {
     private PasswordField pwField;
 
     public void entrar(){
-        boolean emailValid = emailField.getText().equals("mmm@email.com");
-        boolean pwValid = pwField.getText().equals("12345");
-
-        // Usando a lib ControlsFX
-        if(emailValid && pwValid) {
-            Notifications.create()
-                    .position(Pos.TOP_CENTER)
-                    .title("Login FXML")
-                    .text("Login efetuado com sucesso")
-                    .showInformation();
-        } else {
-            Notifications.create()
-                    .position(Pos.TOP_CENTER)
-                    .title("Login FXML")
-                    .text("Informações inválidas no login!")
-                    .showError();
-        }
+        System.out.println(emailField.getText());
+        System.out.println(pwField.getText());
     }
 }
