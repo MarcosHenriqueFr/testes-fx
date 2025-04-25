@@ -13,4 +13,7 @@ module exerciciofx {
 
     exports br.com.empresa.app.fxml;
     opens br.com.empresa.app.fxml to javafx.fxml;
+
+    exports br.com.empresa.app.group;
+    opens br.com.empresa.app.group;
 }
